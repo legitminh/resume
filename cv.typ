@@ -285,6 +285,19 @@
   )
 
   #project(
+    "September 2025 - April 2026",
+    "Waypoint | SpaceX Track & Best Use of Presage",
+    "devpost.com/software/waypoint-sc6dbi",
+    body: bullets(
+      [Collaboratively developed a computer vision focus monitor in *48* hours.],
+      [
+        Led product ideation and specifications. Owned the Gemini Live feature,
+        backend, and website at *creditslimitexceeded.study*.
+      ],
+    ),
+  )
+
+  #project(
     "November 2025 - December 2025",
     "FocusFlow | HackGwinnett 1st place",
     "github.com/legitminh/FocusFlow",
