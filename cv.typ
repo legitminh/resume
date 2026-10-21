@@ -29,15 +29,14 @@
 
 #let section-title(title) = {
   text(size: 12pt, weight: "bold", title)
-  v(-0.1em)
+  v(-0.75em)
   line(length: 100%, stroke: 0.5pt + black)
-  v(0.2em)
+  v(-0.4em)
 }
 
 #let resume-section(title, body) = {
   section-title(title)
-  body
-  v(0.15em)
+  block(inset: (left: 0in, top: 0pt, bottom: 0pt))[#body]
 }
 
 #let experience(
@@ -48,24 +47,24 @@
 ) = {
   grid(
     columns: (1fr, auto),
-    column-gutter: 0.5em,
-    text(weight: "bold")[#title],
+    text(weight: "bold")[#title #org],
     align(right)[
       #text(size: 9pt, fill: dark-grey)[#date]
     ],
   )
+  v(-0.5em)
 
-  if org != none {
-    v(-0.2em)
-    text(size: 9pt, style: "italic")[#org]
-  }
+  // if org != none {
+  //   v(-0.2em)
+  //   text(size: 9pt, style: "italic")[#org]
+  // }
 
   if body != none {
     v(-0.2em)
     body
   }
 
-  v(0.2em)
+  v(0.1em)
 }
 
 #let project(
@@ -77,21 +76,22 @@
   grid(
     columns: (1fr, auto),
     column-gutter: 0.5em,
-    text(weight: "bold")[#title],
+    text(weight: "bold")[#title #link],
     align(right)[
       #text(size: 9pt, fill: dark-grey)[#date]
     ],
   )
+  v(-0.5em)
 
-  v(-0.2em)
-  text(size: 9pt, style: "italic")[#link]
+  // v(-0.2em)
+  // text(size: 9pt, style: "italic")[#link]
 
   if body != none {
     v(-0.2em)
     body
   }
 
-  v(0.2em)
+  v(0.1em)
 }
 
 #let award(year, title, source) = {
@@ -102,13 +102,13 @@
     text(weight: "bold")[#title],
     text(size: 9pt, fill: dark-grey)[#source],
   )
-  v(0.1em)
+  v(-0.5em)
 }
 
 #let bullets(..body) = {
   list(
     marker: [•],
-    spacing: 0.2em,
+    spacing: 0.5em,
     ..body,
   )
 }
@@ -121,8 +121,8 @@
 // ----- Heading -----
 
 #align(center)[
-  #text(size: 21pt, weight: "bold")[MINH NGUYEN]
-  #v(-0.65em)
+  #text(size: 21pt, weight: "bold")[Minh Nguyen]
+  #v(-1.5em)
   #text(size: 9pt)[
     408.752.1082
     #h(0.45em) | #h(0.45em)
@@ -215,8 +215,10 @@
       ],
       [
         Implemented data-collection backend to research interactive education.
-        Authored codebase and onboarding documentation.
       ],
+      // [
+      //   Authored codebase and onboarding documentation.
+      // ]
     ),
   )
 
@@ -238,8 +240,8 @@
     org: "Computer Science Honor Society (CSHS)",
     body: bullets(
       [
-        Coordinated *3* project teams that earned the *\$1,000*
-        Promising STEM Innovation Award from Samsung Solve for Tomorrow.
+        Coordinated *3* project teams winning Samsung Solve for Tomorrow *\$1,000*
+        Promising STEM Innovation Award.
       ],
     ),
   )
@@ -289,8 +291,11 @@
     body: bullets(
       [
         Developed eye fatigue monitoring app in a 6-hour hackathon with
-        team of 3. Responsible for core optical recognition algorithm.
+        team of 3
       ],
+      [
+        Responsible for core optical recognition algorithm.
+      ]
     ),
   )
 
@@ -300,7 +305,7 @@
     "github.com/legitminh/AstroFest",
     body: bullets(
       [
-        Developed online and local multiplayer combat game with original
+        Developed multiplayer combat game with original
         music composition and procedurally generated battlefields.
       ],
     ),
@@ -323,21 +328,15 @@
 // ----- Skills -----
 
 #resume-section("SKILLS")[
+  #text(weight: "bold")[Languages]: Java, C++, C\#, Python, Typescript, HTML, CSS
 
-  #grid(
-    columns: (auto, 1fr),
-    column-gutter: 0.5em,
-    row-gutter: 0.5em,
+  #v(-0.5em)
+  #text(weight: "bold")[Tools]: Linux, Docker, Numpy, Git, Perforce, React, Unity, Linear
+  #v(-0.5em)
 
-    text(weight: "bold")[Scripting Languages],
-    [Java, C++, C\#, Python, Typescript, HTML, CSS],
-
-    text(weight: "bold")[Tools],
-    [Linux, Docker, Numpy, Git, Perforce, React, Unity, Linear],
-
-    text(weight: "bold")[Languages],
-    [Vietnamese C2, Chinese B1, Spanish A2.],
-  )
+  #text(weight: "bold")[Human Languages]:
+    align(right)[Vietnamese C2, Chinese B1, Spanish A2.],
+  
 ]
 
 
@@ -359,13 +358,13 @@
 
   #award(
     "2026",
-    "Stamp President Scholarship Finalist (150 selected from 46,000 applicants)",
+    "Stamp President Scholarship Finalist (150 from 46,000 applicants)",
     "Georgia Institute of Technology",
   )
 
   #award(
     "2026",
-    "Jack Kent Cooke semifinalist (568 selected from 6,500 applicants)",
+    "Jack Kent Cooke semifinalist (568 from 6,500 applicants)",
     "Jack Kent Cooke Foundation",
   )
 
